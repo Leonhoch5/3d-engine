@@ -10,15 +10,15 @@ const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(5, 5, 5);
 scene.add(light);
 
-// Camera controls
+
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 camera.position.set(0, 2, 5);
 controls.update();
 
-// Object storage
+
 const objects = [];
 
-// Add a cube
+
 function addCube() {
   const geometry = new THREE.BoxGeometry();
   const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
@@ -28,7 +28,7 @@ function addCube() {
   objects.push(cube);
 }
 
-// Add a sphere
+
 function addSphere() {
   const geometry = new THREE.SphereGeometry(0.5, 32, 32);
   const material = new THREE.MeshStandardMaterial({ color: 0x0000ff });
@@ -38,7 +38,7 @@ function addSphere() {
   objects.push(sphere);
 }
 
-// Export the scene to GLTF format
+
 function exportModel() {
   const exporter = new THREE.GLTFExporter();
   exporter.parse(
@@ -55,19 +55,19 @@ function exportModel() {
   );
 }
 
-// Event listeners
+
 document.getElementById('addCube').addEventListener('click', addCube);
 document.getElementById('addSphere').addEventListener('click', addSphere);
 document.getElementById('exportModel').addEventListener('click', exportModel);
 
-// Responsive canvas
+
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-// Render loop
+
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
