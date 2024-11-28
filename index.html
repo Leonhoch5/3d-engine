@@ -51,7 +51,7 @@ const objects = [];
 
 function addCube() {
   const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+  const material = new THREE.MeshStandardMaterial({ color: 0x0fff00 });
   const cube = new THREE.Mesh(geometry, material);
   cube.position.set(Math.random() * 4 - 2, Math.random() * 2, Math.random() * 4 - 2);
   scene.add(cube);
